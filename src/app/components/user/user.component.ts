@@ -9,19 +9,39 @@ import { Component } from '@angular/core';
 
 export class UserComponent {
   // Properties
-  firstName = 'John';
-  lastName = 'Smith';
-  age = 30;
-  address = {
-    street: '50 Main st',
-    city: 'Boston',
-    state: 'MA'
-  };
+  firstName: string;
+  lastName: string;
+  age: number;
+  address;
+
+  foo: any;
+  hasKids: boolean;
+  numberArray: number[];
+  stringArray: string[];
+  mixedArray: any[];
+  myTuple: [string, number, boolean];
+  numberSum: number;
 
   // Methods
   constructor() {
-    console.log('Hello user...');
-    // this.sayHello();
+    this.firstName = 'John';
+    this.lastName = 'Doe';
+    this.age = 30;
+    this.address = {
+      street: '50 Main st',
+      city: 'Boston',
+      state: 'MA'
+    };
+
+    this.foo = true;
+    this.hasKids = false;
+    this.numberArray = [1, 2, 3];
+    this.stringArray = ['Hello', 'world'];
+    this.mixedArray = [true, undefined, 'yo', 4];
+    this.myTuple = ['hello', 4, true];
+
+    this.numberSum = this.addNumbers(2, 2);
+    console.log(this.numberSum);
   }
 
   sayHello() {
@@ -30,5 +50,9 @@ export class UserComponent {
 
   hasBirthday() {
     this.age += 1;
+  }
+
+  addNumbers(num1: number, num2: number): number {
+    return num1 + num2;
   }
 }
