@@ -11,7 +11,8 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
   showExtended: boolean;
   loaded: boolean;
-  enableAdd = true;
+  enableAdd: boolean;
+  currentClass = {};
 
   constructor() { }
 
@@ -21,13 +22,14 @@ export class UsersComponent implements OnInit {
       {
       firstName: 'John',
       lastName: 'Doe',
-      age: 30,
+      age: 70,
       address: {
         street: '50 Main st',
         city: 'Boston',
         state: 'MA'
       },
-      image: 'http://lorempixel.com/600/600/people/3'
+      image: 'http://lorempixel.com/600/600/people/3',
+      isActive: true
      },
      {
       firstName: 'Adam',
@@ -38,7 +40,8 @@ export class UsersComponent implements OnInit {
         city: 'Prague',
         state: 'Czech Republic'
       },
-      image: 'http://lorempixel.com/600/600/people/2'
+      image: 'http://lorempixel.com/600/600/people/2',
+      isActive: false
     },
     {
         firstName: 'Lara',
@@ -49,7 +52,8 @@ export class UsersComponent implements OnInit {
           city: 'London',
           state: 'UK'
         },
-        image: 'http://lorempixel.com/600/600/people/1'
+        image: 'http://lorempixel.com/600/600/people/1',
+        isActive: true
     }
     ];
 
@@ -70,11 +74,19 @@ export class UsersComponent implements OnInit {
     }, 2000);
 
     this.showExtended = true;
+    this.setCurrentClasses();
 
   }
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  setCurrentClasses() {
+    this.currentClass = {
+      'btn-success': this.enableAdd = true,
+      'big-text': this.showExtended,
+    };
   }
 
 }
