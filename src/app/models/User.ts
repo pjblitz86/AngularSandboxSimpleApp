@@ -1,10 +1,10 @@
 export interface User {
-  firstName: 'John';
-  lastName: 'Doe';
-  age: 30;
+  firstName: string;
+  lastName: string;
+  age?: number;
   address: {
-    street: '50 Main st',
-    city: 'Boston',
-    state: 'MA'
+    street: string;
+    city: string;
+    state: string;
   };
 }
