@@ -57,13 +57,17 @@ export class UsersComponent implements OnInit {
     ];
 
       this.loaded = true;
+      this.enableAdd = true;
     }, 2000);
 
-    this.showExtended = true;
+    this.showExtended = false;
 
   }
 
   addUser(user: User) {
     this.users.push(user);
+  }
+  fireEvent(e) {
+    console.log(e.type);
   }
 }
