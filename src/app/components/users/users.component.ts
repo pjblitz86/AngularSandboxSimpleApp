@@ -12,8 +12,6 @@ export class UsersComponent implements OnInit {
   showExtended: boolean;
   loaded: boolean;
   enableAdd: boolean;
-  currentClass = {};
-  currentStyles = {};
 
   constructor() { }
 
@@ -29,9 +27,7 @@ export class UsersComponent implements OnInit {
         city: 'Boston',
         state: 'MA'
       },
-      image: 'http://lorempixel.com/600/600/people/3',
       isActive: true,
-      balance: 100,
       registered: new Date('01/02/2018 08:30:00')
      },
      {
@@ -43,9 +39,7 @@ export class UsersComponent implements OnInit {
         city: 'Prague',
         state: 'Czech Republic'
       },
-      image: 'http://lorempixel.com/600/600/people/2',
       isActive: false,
-      balance: 200,
       registered: new Date('03/11/2018 06:20:00')
     },
     {
@@ -57,51 +51,19 @@ export class UsersComponent implements OnInit {
           city: 'London',
           state: 'UK'
         },
-        image: 'http://lorempixel.com/600/600/people/1',
         isActive: true,
-        balance: 50,
         registered: new Date('11/02/2016 10:34:00')
     }
     ];
-
-    // this.addUser(
-    //   {
-    //     firstName: 'Neo',
-    //     lastName: 'The One',
-    //     age: 36,
-    //     address: {
-    //       street: '14 Future st',
-    //       city: 'Underground',
-    //       state: 'Matrix'
-    //     }
-    //   }
-    // );
 
       this.loaded = true;
     }, 2000);
 
     this.showExtended = true;
-    this.setCurrentClasses();
-    this.setCurrentStyle();
 
   }
 
   addUser(user: User) {
     this.users.push(user);
   }
-
-  setCurrentClasses() {
-    this.currentClass = {
-      'btn-success': this.enableAdd = true,
-      'big-text': this.showExtended,
-    };
-  }
-
-  setCurrentStyle() {
-    this.currentStyles = {
-      'padding-top': this.showExtended ? '0' : '40px',
-      'font-size': this.showExtended ? '' : '40px'
-    };
-  }
-
 }
