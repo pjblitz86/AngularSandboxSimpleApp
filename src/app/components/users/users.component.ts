@@ -28,7 +28,8 @@ export class UsersComponent implements OnInit {
         state: 'MA'
       },
       isActive: true,
-      registered: new Date('01/02/2018 08:30:00')
+      registered: new Date('01/02/2018 08:30:00'),
+      hide: false
      },
      {
       firstName: 'Adam',
@@ -40,7 +41,8 @@ export class UsersComponent implements OnInit {
         state: 'Czech Republic'
       },
       isActive: false,
-      registered: new Date('03/11/2018 06:20:00')
+      registered: new Date('03/11/2018 06:20:00'),
+      hide: true
     },
     {
         firstName: 'Lara',
@@ -52,7 +54,8 @@ export class UsersComponent implements OnInit {
           state: 'UK'
         },
         isActive: true,
-        registered: new Date('11/02/2016 10:34:00')
+        registered: new Date('11/02/2016 10:34:00'),
+        hide: true
     }
     ];
 
@@ -60,14 +63,12 @@ export class UsersComponent implements OnInit {
       this.enableAdd = true;
     }, 2000);
 
-    this.showExtended = false;
+    this.showExtended = true;
 
   }
 
   addUser(user: User) {
     this.users.push(user);
   }
-  fireEvent(e) {
-    console.log(e.type);
-  }
+
 }
