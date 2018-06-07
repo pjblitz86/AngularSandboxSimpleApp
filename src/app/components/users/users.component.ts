@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
   loaded: boolean;
   enableAdd: boolean;
   currentClass = {};
+  currentStyles = {};
 
   constructor() { }
 
@@ -75,6 +76,7 @@ export class UsersComponent implements OnInit {
 
     this.showExtended = true;
     this.setCurrentClasses();
+    this.setCurrentStyle();
 
   }
 
@@ -86,6 +88,13 @@ export class UsersComponent implements OnInit {
     this.currentClass = {
       'btn-success': this.enableAdd = true,
       'big-text': this.showExtended,
+    };
+  }
+
+  setCurrentStyle() {
+    this.currentStyles = {
+      'padding-top': this.showExtended ? '0' : '40px',
+      'font-size': this.showExtended ? '' : '40px'
     };
   }
 
