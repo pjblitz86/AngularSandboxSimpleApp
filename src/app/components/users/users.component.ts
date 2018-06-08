@@ -8,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  user: User = {
+    firstName: '',
+    lastName: '',
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      state: ''
+    }
+  };
   users: User[] = [];
   showExtended: boolean;
   loaded: boolean;
-  enableAdd: boolean;
+  enableAdd: boolean = false;
   showUserForm: boolean = false;
 
   constructor() { }
@@ -61,15 +71,23 @@ export class UsersComponent implements OnInit {
     ];
 
       this.loaded = true;
-      this.enableAdd = true;
     }, 2000);
-
-    this.showExtended = true;
-
   }
 
-  addUser(user: User) {
-    this.users.push(user);
+  addUser() {
+    this.user.isActive = true;
+    this.user.registered = new Date();
+    this.users.unshift(this.user);
+    this.user = {
+      firstName: '',
+      lastName: '',
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        state: ''
+      }
+  };
   }
 
   onSubmit(e) {
