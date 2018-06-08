@@ -9,8 +9,10 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PostFormComponent implements OnInit {
   @Output() newPost: EventEmitter<Post> = new EventEmitter();
+  @Output() updatedPost: EventEmitter<Post> = new EventEmitter();
   @Input() currentPost: Post;
   @Input() isEdit: boolean;
+
   constructor(private postService: PostService) { }
 
   ngOnInit() {
@@ -28,6 +30,11 @@ export class PostFormComponent implements OnInit {
   }
 
   updatePost() {
-    console.log(123);
+    this.postService.updatePost(this.currentPost)
+    .subscribe(post => {
+      console.log(post);
+      this.isEdit = false;
+      this.updatedPost.emit(post);
+      });
   }
 }
